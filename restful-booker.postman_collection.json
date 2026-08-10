@@ -102,7 +102,8 @@
               "    response.forEach(booking => {",
               "        pm.expect(booking.bookingid).to.exist;",
               "    });",
-              "});"
+              "});",
+              "pm.collectionVariables.set(\"bookingId\", response[0].bookingid);"
             ],
             "type": "text/javascript",
             "packages": {},
@@ -170,13 +171,13 @@
           }
         ],
         "url": {
-          "raw": "{{baseurl}}/booking/1",
+          "raw": "{{baseurl}}/booking/{{bookingId}}",
           "host": [
             "{{baseurl}}"
           ],
           "path": [
             "booking",
-            "1"
+            "{{bookingId}}"
           ]
         }
       },
@@ -439,6 +440,10 @@
   "variable": [
     {
       "key": "token",
+      "value": ""
+    },
+    {
+      "key": "bookingId",
       "value": ""
     }
   ]
