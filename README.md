@@ -151,7 +151,6 @@ restful-booker-api-tests/
 │
 └── screenshots/
     ├── Jenkins Build.png
-    ├── Jenkins Success Run.png
     └── Restful Booker Test Report.png
 ```
 
