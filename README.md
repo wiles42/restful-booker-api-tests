@@ -24,3 +24,4 @@ API automation tests created with Postman and Newman.
 ```bash
 newman run restful-booker.postman_collection.json \
 -e restful-booker.postman_environment.json
+
