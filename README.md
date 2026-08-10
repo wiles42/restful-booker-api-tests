@@ -1,20 +1,19 @@
-
 # Restful Booker API Automation
 
-Automated REST API testing project using **Postman, Newman, and Jenkins**.
+API automation testing project using **Postman, Newman, and Jenkins**.
 
-The project validates the core functionality of the Restful Booker API and demonstrates how API tests can be integrated into a CI workflow. Tests are executed through Newman and automatically triggered by GitHub commits using a Jenkins webhook.
+This project tests the core functionality of the Restful Booker API and demonstrates how API tests can be integrated into a CI workflow.
 
 ## Project Overview
 
-This project was created to demonstrate API automation and CI/CD practices commonly used in software QA and SDET environments.
+The project uses Postman to create and maintain API tests, Newman to execute the collection from the command line, and Jenkins to automate test execution.
 
 ### Test Workflow
 
 ```text
 GitHub
    ↓
-Webhook
+GitHub Webhook
    ↓
 Jenkins
    ↓
@@ -36,10 +35,10 @@ The Postman collection covers the following API workflows:
 * Retrieve booking information
 * Create a booking
 * Update a booking
-* Partially update a booking
-* Delete a booking
+* Partial booking update
+* Delete booking
 
-The tests include **22 assertions** validating response status codes, response structure, booking data, authentication, and CRUD operations.
+The collection currently contains **22 assertions** validating response status codes, response structure, authentication, and booking data.
 
 ## API Test Design
 
@@ -54,7 +53,7 @@ The collection uses Postman JavaScript scripts for:
 * Pre-request validation
 * Collection variables
 
-Booking IDs are dynamically captured from API responses rather than relying on hardcoded IDs. This helps prevent tests from failing when booking data changes between executions.
+Booking IDs are dynamically captured from API responses rather than relying on hardcoded IDs. This allows the tests to remain reliable when booking data changes between executions.
 
 ## Tools & Technologies
 
@@ -62,7 +61,8 @@ Booking IDs are dynamically captured from API responses rather than relying on h
 * **Newman** — Command-line execution of Postman collections
 * **Newman HTML Extra Reporter** — HTML test reporting
 * **Jenkins** — Continuous integration
-* **Git / GitHub** — Source control and CI trigger
+* **Git / GitHub** — Source control
+* **GitHub Webhooks** — Automated Jenkins triggering
 * **JavaScript** — Postman test and pre-request scripts
 * **REST API / HTTP** — API testing
 
@@ -90,8 +90,6 @@ newman run restful-booker.postman_collection.json \
 --reporter-htmlextra-export newman-report.html
 ```
 
-The HTML report is generated after the test execution and can be opened in a browser.
-
 ## Jenkins CI
 
 The project is integrated with Jenkins for continuous integration.
@@ -107,15 +105,31 @@ The Jenkins job:
 
 ### Automated Trigger
 
-A GitHub webhook triggers the Jenkins job whenever changes are pushed to the repository.
+A GitHub webhook triggers the Jenkins job when changes are pushed to the repository.
 
-This allows API tests to execute automatically whenever the project is updated.
+This allows the API tests to execute automatically whenever the project is updated.
 
-## Example Jenkins Result
+## Jenkins Build
+
+The following screenshot shows the Jenkins build executing the Newman API automation successfully.
+
+![Jenkins Build](screenshots/Jenkins%20Build.png)
+
+## Jenkins Successful Run
+
+This screenshot shows a successful Jenkins execution of the API automation suite.
+
+![Jenkins Successful Run](screenshots/Jenkins%20Success%20Run.png)
+
+## Newman HTML Test Report
+
+Jenkins publishes the Newman HTML Extra report after the API tests complete.
+
+![Restful Booker Test Report](screenshots/Restful%20Booker%20Test%20Report.png)
+
+## Example Test Results
 
 A successful execution runs all seven API requests and validates the test assertions.
-
-Example:
 
 ```text
 Requests:       7
@@ -133,7 +147,12 @@ restful-booker-api-tests/
 ├── .gitignore
 ├── README.md
 ├── restful-booker.postman_collection.json
-└── restful-booker.postman_environment.json
+├── restful-booker.postman_environment.json
+│
+└── screenshots/
+    ├── Jenkins Build.png
+    ├── Jenkins Success Run.png
+    └── Restful Booker Test Report.png
 ```
 
 ## Skills Demonstrated
@@ -154,6 +173,21 @@ This project demonstrates practical experience with:
 * GitHub webhooks
 * Automated test execution
 * HTML test reporting
-* Debugging CI environment issues
+* CI troubleshooting and debugging
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
