@@ -115,12 +115,6 @@ The following screenshot shows the Jenkins build executing the Newman API automa
 
 ![Jenkins Build](screenshots/Jenkins%20Build.png)
 
-## Jenkins Successful Run
-
-This screenshot shows a successful Jenkins execution of the API automation suite.
-
-![Jenkins Successful Run](screenshots/Jenkins%20Success%20Run.png)
-
 ## Newman HTML Test Report
 
 Jenkins publishes the Newman HTML Extra report after the API tests complete.
